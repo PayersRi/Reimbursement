@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>إدارة دليل شركات التأمين</title>
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="payers.css">
+<style>
+.page.adm { max-width: 900px; }
+.adm label { display: block; font-weight: 700; margin: 12px 0 4px; font-size: .9rem; }
+.adm input[type=text], .adm input[type=password], .adm textarea { width: 100%; padding: 10px 12px; font: inherit; border: 1px solid var(--line); border-radius: 10px; background: var(--soft); color: var(--ink); }
+.adm textarea { min-height: 110px; resize: vertical; line-height: 1.6; }
+.adm textarea.ltr { direction: ltr; text-align: left; }
+.btn { background: var(--accent); color: #fff; border: 0; border-radius: 10px; padding: 10px 18px; font: inherit; font-weight: 700; cursor: pointer; }
+.btn.alt { background: var(--card); color: var(--ink); border: 1px solid var(--line); }
+.btn.del { background: #b91c1c; }
+.row2 { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.item { display: flex; justify-content: space-between; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--line); cursor: pointer; }
+.item:hover { background: var(--soft); }
+.err { color: #b91c1c; margin: 8px 0 0; } .ok { color: var(--accent); margin: 8px 0 0; }
+.grid2 { display: grid; gap: 12px; } @media (min-width: 700px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+.sech { margin: 18px 0 0; padding-top: 10px; border-top: 2px solid var(--line); color: var(--accent); font-weight: 700; }
+.listbox { max-height: 320px; overflow: auto; border: 1px solid var(--line); border-radius: 10px; margin-top: 10px; }
+</style>
+</head>
+<body>
+<div class="page adm">
+  <header class="card hero"><h1>إدارة دليل شركات التأمين</h1><p class="muted">تعديل الشركات والأوراق والملاحظات العاجلة</p></header>
+
+  <section class="card" id="lock">
+    <label for="pw">كلمة السر</label>
+    <input id="pw" type="password" autocomplete="current-password">
+    <div class="row2"><button id="unlock" class="btn" type="button">دخول</button></div>
+    <p id="lockErr" class="err" hidden></p>
+  </section>
+
+  <div id="app" hidden>
+    <section class="card">
+      <div id="tabs" class="chips"></div>
+      <input id="q" class="search" type="search" autocomplete="off" placeholder="ابحث" style="margin-top:10px">
+      <div class="row2"><button id="addBtn" class="btn alt" type="button">+ إضافة</button></div>
+      <div id="list" class="listbox"></div>
+    </section>
+    <section class="card" id="edit" hidden></section>
+    <p id="msg" class="ok" hidden></p>
+  </div>
+</div>
+<script src="admin.js"></script>
+</body>
+</html>
