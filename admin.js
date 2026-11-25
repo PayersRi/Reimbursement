@@ -111,6 +111,35 @@
       commit("", function () { (S.tab === "payers" ? S.data.payers : S.data.docs).splice(S.sel, 1); });
     }
   });
+
+  var pending = null;
+  function diff(a, b, key) {
+    var A = {}, B = {}; a.forEach(function (x) { A[key(x)] = JSON.stringify(x); }); b.forEach(function (x) { B[key(x)] = JSON.stringify(x); });
+    var add = 0, rem = 0, chg = 0;
+    Object.keys(B).forEach(function (k) { if (!(k in A)) add++; else if (A[k] !== B[k]) chg++; });
+    Object.keys(A).forEach(function (k) { if (!(k in B)) rem++; });
+    return { add: add, rem: rem, chg: chg };
+  }
+  $("xfile").addEventListener("change", function (e) {
+    var f = e.target.files[0], box = $("xprev"); pending = null; box.hidden = true; msg("");
+    if (!f) return;
+    f.arrayBuffer().then(function (buf) {
+      var out;
+      try { out = XLSParse.parse(XLSX, XLSX.read(buf, { type: "array" })); } catch (x) { msg(x.message && /[\u0600-\u06ff]/.test(x.message) ? x.message : "مش قادر أقرا الملف. اتأكد إنه xlsx سليم.", 1); return; }
+      var p = diff(S.data.payers, out.payers, function (x) { return x.name; }), d = diff(S.data.docs, out.docs, function (x) { return x.type; });
+      pending = out;
+      box.innerHTML = '<p class="sech">ملخص الملف: ' + esc(f.name) + '</p><p>الشركات: ' + out.payers.length + ' (جديد ' + p.add + '، اتغير ' + p.chg + '، هيتمسح ' + p.rem + ')<br>الأوراق المطلوبة: ' + out.docs.length + ' (جديد ' + d.add + '، اتغير ' + d.chg + '، هيتمسح ' + d.rem + ')<br>الملاحظات العاجلة: ' + out.docs.filter(function (x) { return x.note; }).length + '</p><div class="row2"><button class="btn" id="xapply" type="button">تطبيق وحفظ</button><button class="btn alt" id="xcancel" type="button">إلغاء</button></div>';
+      box.hidden = false;
+    });
+  });
+  document.addEventListener("click", function (e) {
+    if (e.target.id === "xcancel") { pending = null; $("xprev").hidden = true; $("xfile").value = ""; }
+    else if (e.target.id === "xapply" && pending) {
+      var out = pending; pending = null;
+      commit("", function () { S.data = out; });
+      $("xprev").hidden = true; $("xfile").value = "";
+    }
+  });
   $("q").addEventListener("input", function (e) { S.q = e.target.value; renderList(); });
   function go() {
     var pw = $("pw").value, er = $("lockErr"); er.hidden = true;

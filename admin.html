@@ -37,6 +37,12 @@
 
   <div id="app" hidden>
     <section class="card">
+      <label for="xfile" style="margin-top:0">رفع ملف Excel لتحديث كل البيانات مرة واحدة</label>
+      <p class="muted" style="margin:0 0 8px">نفس شكل الملف: شيت الشركات (Type, Code, Payer Name, Corporate, Individual + العربي) وشيت الأوراق المطلوبة. الملف بيستبدل كل البيانات الحالية، وهتشوف ملخص قبل الحفظ.</p>
+      <input id="xfile" type="file" accept=".xlsx,.xls">
+      <div id="xprev" hidden></div>
+    </section>
+    <section class="card">
       <div id="tabs" class="chips"></div>
       <input id="q" class="search" type="search" autocomplete="off" placeholder="ابحث" style="margin-top:10px">
       <div class="row2"><button id="addBtn" class="btn alt" type="button">+ إضافة</button></div>
@@ -46,6 +52,8 @@
     <p id="msg" class="ok" hidden></p>
   </div>
 </div>
+<script src="vendor/xlsx.full.min.js"></script>
+<script src="xlsparse.js"></script>
 <script src="admin.js"></script>
 </body>
 </html>
