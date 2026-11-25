@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="800" height="560">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9fd9e6"/><stop offset="1" stop-color="#3aa6c2"/></linearGradient>
+<linearGradient id="sh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14879f"/><stop offset="1" stop-color="#0b5a73"/></linearGradient>
+</defs>
+<rect width="800" height="560" fill="url(#bg)"/>
+<circle cx="90" cy="80" r="120" fill="#fff" opacity=".12"/>
+<circle cx="740" cy="500" r="160" fill="#fff" opacity=".12"/>
+<rect x="0" y="440" width="800" height="120" fill="#0b5a73" opacity=".18"/>
+<!-- document -->
+<g transform="rotate(-6 400 290)">
+<rect x="250" y="90" width="300" height="380" rx="22" fill="#000" opacity=".12" transform="translate(8 12)"/>
+<rect x="250" y="90" width="300" height="380" rx="22" fill="#fff"/>
+<rect x="280" y="125" width="120" height="16" rx="8" fill="#14879f"/>
+<rect x="280" y="165" width="240" height="10" rx="5" fill="#cfe6ec"/>
+<rect x="280" y="190" width="240" height="10" rx="5" fill="#cfe6ec"/>
+<rect x="280" y="215" width="180" height="10" rx="5" fill="#cfe6ec"/>
+<rect x="280" y="260" width="240" height="70" rx="12" fill="#e3f4f8"/>
+<circle cx="318" cy="295" r="20" fill="#2fb383"/>
+<path d="M308 295 l8 9 l16 -18" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="352" y="282" width="140" height="12" rx="6" fill="#14879f"/>
+<rect x="352" y="302" width="90" height="10" rx="5" fill="#9ccbd6"/>
+<rect x="280" y="355" width="240" height="10" rx="5" fill="#cfe6ec"/>
+<rect x="280" y="380" width="200" height="10" rx="5" fill="#cfe6ec"/>
+<rect x="280" y="415" width="110" height="28" rx="14" fill="#14879f"/>
+</g>
+<!-- shield -->
+<g transform="translate(95 170)">
+<path d="M100 0 L190 34 V130 C190 200 150 245 100 270 C50 245 10 200 10 130 V34 Z" fill="#000" opacity=".12" transform="translate(6 10)"/>
+<path d="M100 0 L190 34 V130 C190 200 150 245 100 270 C50 245 10 200 10 130 V34 Z" fill="url(#sh)"/>
+<rect x="82" y="70" width="36" height="110" rx="8" fill="#fff"/>
+<rect x="45" y="107" width="110" height="36" rx="8" fill="#fff"/>
+</g>
+<!-- coins -->
+<g transform="translate(590 330)">
+<ellipse cx="60" cy="150" rx="70" ry="18" fill="#000" opacity=".12"/>
+<g fill="#f4b942" stroke="#c98a14" stroke-width="4">
+<ellipse cx="60" cy="125" rx="58" ry="18"/><rect x="2" y="95" width="116" height="30" stroke="none"/><ellipse cx="60" cy="95" rx="58" ry="18"/>
+<ellipse cx="60" cy="85" rx="58" ry="18"/><rect x="2" y="55" width="116" height="30" stroke="none"/><ellipse cx="60" cy="55" rx="58" ry="18"/>
+<ellipse cx="60" cy="45" rx="58" ry="18"/><rect x="2" y="15" width="116" height="30" stroke="none"/><ellipse cx="60" cy="15" rx="58" ry="18"/>
+</g>
+<text x="60" y="22" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#8a5a0a">$</text>
+</g>
+<!-- plus marks -->
+<g fill="#fff" opacity=".7"><rect x="660" y="90" width="10" height="34" rx="3"/><rect x="648" y="102" width="34" height="10" rx="3"/>
+<rect x="150" y="440" width="8" height="26" rx="3"/><rect x="141" y="449" width="26" height="8" rx="3"/></g>
+</svg>
