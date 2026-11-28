@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="جدول بريكات الفرق">
+<title>جدول البريكات</title>
+<link rel="stylesheet" href="app.css?v=3">
+</head>
+<body>
+<div class="page">
+  <header class="card hero">
+    <div class="tools">
+      <button id="themeBtn" class="tool-btn" type="button" aria-label="الوضع الليلي">🌙</button>
+      <button id="langBtn" class="tool-btn" type="button">English</button>
+      <span class="tools-gap"></span>
+      <button id="xlsBtn" class="tool-btn" type="button">⬇ Excel</button>
+      <button id="imgBtn" class="tool-btn" type="button">⬇ <span id="imgBtnLbl">Image</span></button>
+      <button id="pxlsBtn" class="tool-btn" type="button">⬇ Excel · People</button>
+      <button id="pimgBtn" class="tool-btn" type="button">⬇ Image · People</button>
+    </div>
+    <h1 id="title">جدول البريكات</h1>
+    <p id="daydate" class="muted"></p>
+    <img class="hero-img" src="hero.png" alt="">
+  </header>
+
+  <section class="card">
+    <input id="q" class="search" type="search" placeholder="ابحث بالاسم أو كود HR" autocomplete="off">
+    <div id="teams" class="chips" role="group" aria-label="الفريق"></div>
+    <div id="views" class="chips" role="group" aria-label="العرض"></div>
+  </section>
+
+  <section id="stats" class="stats"></section>
+
+  <main id="list" class="card list"></main>
+
+  <footer class="muted foot">
+    <p id="updated"></p>
+  </footer>
+</div>
+<script src="config.js"></script>
+<script src="viewer.js?v=6"></script>
+</body>
+</html>
